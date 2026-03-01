@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TravelBuddy – Home</title>
+  <link rel="stylesheet" href="..//styles/style2.css" />
+  <link rel="manifest" href="/manifest.json">
+  <script src="/scripts/main.js"></script>
+</head>
+<body>
+    <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js')
+          .then(reg => console.log('Service Worker registered:', reg.scope))
+          .catch(err => console.error('SW registration failed:', err));
+      });
+    }
+  </script>
+
+  <div class="wrapper">
+
+    <!-- HEADER -->
+    <header class="navbar">
+      <div class="logo">TravelBuddy</div>
+
+      <nav>
+        <a href="..//index.html" class="header-link">Home</a>
+        <button class="btn-outline">Sign In</button>
+        <button class="btn-solid">Register</button>
+      </nav>
+    </header>
+
+    <!-- EXPLORE SECTION -->
+    <section class="explore-section">
+
+      <!-- Search -->
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Search destinations...">
+      </div>
+
+      <!-- Cards -->
+      <div class="card-container" id="cardContainer">
+
+        <div class="explore-card">
+          <h3>Boracay</h3>
+          <p>Famous for white sand beaches and nightlife.</p>
+          <span class="like-btn">♡</span>
+        </div>
+
+        <div class="explore-card">
+          <h3>Palawan</h3>
+          <p>Crystal clear waters and island hopping adventures.</p>
+          <span class="like-btn">♡</span>
+        </div>
+
+        <div class="explore-card">
+          <h3>Baguio</h3>
+          <p>Cool mountain breeze and scenic parks.</p>
+          <span class="like-btn">♡</span>
+        </div>
+
+      </div>
+
+    </section>
+
+  </div>
+
+  <script>
+    // LIKE BUTTON TOGGLE
+    document.querySelectorAll(".like-btn").forEach(btn => {
+      btn.addEventListener("click", function() {
+        this.classList.toggle("liked");
+        this.textContent = this.classList.contains("liked") ? "♥" : "♡";
+      });
+    });
+
+    // SEARCH FILTER
+    const searchInput = document.getElementById("searchInput");
+    const cards = document.querySelectorAll(".explore-card");
+
+    searchInput.addEventListener("keyup", function() {
+      let value = this.value.toLowerCase();
+
+      cards.forEach(card => {
+        let text = card.textContent.toLowerCase();
+        card.style.display = text.includes(value) ? "block" : "none";
+      });
+    });
+  </script>
+
+</body>
+
+</html>
+
