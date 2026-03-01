@@ -1,7 +1,7 @@
 {
   "name": "TravelBuddy",
   "short_name": "TravelBuddy",
-  "start_url": ".",
+  "start_url": "/index.html",
   "display": "standalone",
   "background_color": "#4CAF50",
   "theme_color": "#4CAF50",
