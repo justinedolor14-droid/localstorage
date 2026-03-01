@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TravelBuddy – Home</title>
+  <link rel="stylesheet" href="..//styles/style1.css" />
+</head>
+<body>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/service-worker.js')
+      .then(reg => console.log('Service Worker registered:', reg.scope))
+      .catch(err => console.error('Service Worker registration failed:', err));
+  });
+}
+</script>
+  <div class="wrapper">
+
+    <!-- HEADER -->
+    <header class="navbar">
+      <div class="logo">TravelBuddy</div>
+
+      <nav>
+        <a href="..//index.html" class="header-link">Home</a>
+        <button class="btn-outline">Sign In</button>
+        <button class="btn-solid">Register</button>
+      </nav>
+    </header>
+
+    <!-- CENTER MENU -->
+    <section class="hero">
+      <div class="menu-container">
+        <div class="menu-container" id="menuContainer">
+          <a href="#" class="menu-item" id="countriesBtn">+ ADD COUNTRY</a>
+        </div>
+
+        <script>
+          const countriesBtn = document.getElementById("countriesBtn");
+          const menu = document.getElementById("menuContainer");
+          let inputActive = false;
+
+          countriesBtn.onclick = e => {
+            e.preventDefault();
+            if(inputActive) return;
+            
+            inputActive = true;
+            const inputWrapper = document.createElement("div");
+            inputWrapper.className = "menu-item";
+            inputWrapper.style.cssText = "display:flex;gap:5px;";
+            
+            const input = document.createElement("input");
+            input.type = "text";
+            input.placeholder = "Country name";
+            input.style.cssText = "flex:1;padding:5px;border:1px solid #ccc;border-radius:4px;";
+            
+            const confirmBtn = document.createElement("button");
+            confirmBtn.textContent = "✓";
+            confirmBtn.style.cssText = "padding:5px 10px;background:#4CAF50;color:white;border:none;border-radius:4px;cursor:pointer;";
+            
+            const cancelBtn = document.createElement("button");
+            cancelBtn.textContent = "✕";
+            cancelBtn.style.cssText = "padding:5px 10px;background:#f44336;color:white;border:none;border-radius:4px;cursor:pointer;";
+            
+            inputWrapper.append(input, confirmBtn, cancelBtn);
+            menu.insertBefore(inputWrapper, countriesBtn);
+            input.focus();
+            
+            confirmBtn.onclick = () => {
+              const country = input.value.trim();
+              if(country){
+                const link = document.createElement("a");
+                link.href = "#";
+                link.className = "menu-item";
+                link.textContent = country.toUpperCase();
+                menu.insertBefore(link, inputWrapper);
+              }
+              inputWrapper.remove();
+              inputActive = false;
+            };
+            
+            cancelBtn.onclick = () => {
+              inputWrapper.remove();
+              inputActive = false;
+            };
+            
+            input.onkeypress = e => {
+              if(e.key === "Enter") confirmBtn.click();
+              if(e.key === "Escape") cancelBtn.click();
+            };
+          }
+        </script>
+    </section>
+
+  </div>
+
+</body>
+</html>

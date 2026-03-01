@@ -1,0 +1,44 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TravelBuddy – Home</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/service-worker.js')
+      .then(reg => console.log('Service Worker registered:', reg.scope))
+      .catch(err => console.error('Service Worker registration failed:', err));
+  });
+}
+</script>
+
+  <div class="wrapper">
+
+    <!-- HEADER -->
+    <header class="navbar">
+      <div class="logo">TravelBuddy</div>
+
+      <div class="auth-buttons">
+        <button class="btn-outline">Sign In</button>
+        <button class="btn-solid">Register</button>
+      </div>
+    </header>
+
+    <!-- CENTER MENU -->
+    <section class="hero">
+      <div class="menu-container">
+        <a href="pages/day-trips.html" class="menu-item">DAY TRIPS</a>
+        <a href="pages/Explore.html" class="menu-item">Explore</a>
+        <a href="pages/Mytips.html" class="menu-item">My Tips</a>
+      </div>
+    </section>
+
+  </div>
+
+</body>
+</html>

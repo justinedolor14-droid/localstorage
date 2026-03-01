@@ -1,0 +1,153 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body {
+  background: #1a1a1a;
+  display: flex;
+  justify-content: center;
+  color: #fff;
+}
+
+/* MOBILE APP WIDTH */
+.wrapper {
+  width: 100%;
+  max-width: 450px;
+  min-height: 100vh;
+  background: linear-gradient(180deg, #00384d, #002b3a);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+/* HEADER */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  position: sticky;
+  top: 0;
+  background: rgba(0, 43, 58, 0.9);
+  z-index: 10;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 18px;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+nav .header-link {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+nav .header-link:hover {
+  text-decoration: underline;
+}
+
+.btn-outline,
+.btn-solid {
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+}
+
+.btn-solid {
+  background: #fff;
+  border: none;
+  color: #002b3a;
+}
+/* CENTER AREA */
+.hero {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* MENU (Homepage) */
+.menu-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.menu-item {
+  background: #fff;
+  color: #002b3a;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 700;
+  text-align: center;
+  padding: 18px;
+  border-radius: 14px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  transition: 0.3s ease;
+}
+
+.menu-item:hover {
+  transform: translateY(-3px);
+}
+
+/* MY TIPS PAGE */
+.tips-container {
+  width: 100%;
+  background: #ffffff;
+  color: #002b3a;
+  padding: 30px 25px;
+  border-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+.tips-container h2 {
+  text-align: center;
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.tips-container h2::after {
+  content: "";
+  width: 50px;
+  height: 3px;
+  background: #002b3a;
+  display: block;
+  margin: 8px auto 0;
+  border-radius: 2px;
+}
+
+.tips-container p {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.6;
+  padding: 10px 14px;
+  background: #f4f6f8;
+  border-radius: 10px;
+}
