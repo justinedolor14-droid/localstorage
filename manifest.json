@@ -3,7 +3,7 @@
   "short_name": "TravelBuddy",
   "start_url": "/index.html",
   "display": "standalone",
-  "background_color": "#4CAF50",
+  "background_color": "#002b3a",
   "theme_color": "#4CAF50",
   "description": "Plan your trips, explore destinations, and keep your travel tips all in one place.",
   "icons": [
